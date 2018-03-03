@@ -3,19 +3,24 @@ import socket
 import threading
 import warnings
 
-import requests
+
+# add requests-html and eventuall parse out all mentions of requests if possible
+
+import requests_html
 import six
 import tldextract
 from selenium.common.exceptions import NoSuchWindowException, WebDriverException
 from six.moves import BaseHTTPServer
 from six.moves.urllib.parse import urlparse
-
+from requests_html import HTMLSession
+import requests as req_og
 FIND_WINDOW_HANDLE_WARNING = (
     'Created window handle could not be found reliably. Using less reliable '
     'alternative method. JavaScript redirects are not supported and an '
     'additional GET request might be made for the requested URL.'
 )
 
+requests = requests_html
 headers = None
 update_headers_mutex = threading.Semaphore()
 update_headers_mutex.acquire()
@@ -30,7 +35,7 @@ class SeleniumRequestsException(Exception):
 class HTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
     def do_GET(self):
         global headers
-        headers = requests.structures.CaseInsensitiveDict(self.headers if six.PY3 else self.headers.dict)
+        headers = req_og.structures.CaseInsensitiveDict(self.headers if six.PY3 else self.headers.dict)
         update_headers_mutex.release()
 
         self.send_response(200)
@@ -141,7 +146,7 @@ def make_match_domain_predicate(domain):
 class RequestsSessionMixin(object):
     def __init__(self, *args, **kwargs):
         super(RequestsSessionMixin, self).__init__(*args, **kwargs)
-        self.requests_session = requests.Session()
+        self.requests_session = requests.HTMLSession()
 
         self.__has_webdriver_request_headers = False
         self.__is_phantomjs = self.name == 'phantomjs'

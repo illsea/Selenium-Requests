@@ -24,15 +24,19 @@ Usage
 -----
 ```python
 # Import any WebDriver class that you would usually import from
-# selenium.webdriver from the seleniumrequests module
-from seleniumrequests import Firefox
+# selenium.webdriver from the seleniumrequestshtml module
+from seleniumrequestshtml import Chrome
+from selenium.webdriver.chrome.options import Options
 
-# Simple usage with built-in WebDrivers:
-webdriver = Firefox()
-response = webdriver.request('GET', 'https://www.google.com/')
-print(response)
+# Set up the options for your webdriver
+url = 'https://illsea.com'
+options = Options()
+options.add_argument("--headless")
+webdriver = Chrome(chrome_options=options)
 
+# webdriver.requests_session replaces regular HTMLSession() usage from requests-html
+session = webdriver.requests_session
+response = session.get(url)
+images = response.html.find('img')
 
-Installation
-------------
-```pip install selenium-requests```
+print(images)

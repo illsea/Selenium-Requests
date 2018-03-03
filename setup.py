@@ -33,6 +33,7 @@ setup(
         'tldextract'
     ),
     license='MIT',
+    python_requires='>=3.6',
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

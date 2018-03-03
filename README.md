@@ -4,8 +4,7 @@ Extends Selenium WebDriver classes to include the [HTMLSession](http://html.pyth
 
 This hasn't really been tested and is not likely to get a whole lot of work done on it. My initial tests seemed to work for my use case. Most functionality worked with another webdriver, but the render function in Requests-HTML has a dependency that uses chromedriver and I have not yet looked into a way around it.
 
-Most of the work already seemed to have been done, thanks to the organization and work already done in [Selenium Requests]
-(https://github.com/cryzed/Selenium-Requests) and [Requests-HTML](http://html.python-requests.org/), as well as the original [Requests](http://python-requests.org/) library.
+Most of the work already seemed to have been done, thanks to the organization and work already done in [Selenium Requests](https://github.com/cryzed/Selenium-Requests) and [Requests-HTML](http://html.python-requests.org/), as well as the original [Requests](http://python-requests.org/) library.
 
 Usage
 -----

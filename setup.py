@@ -12,18 +12,20 @@ else:
         long_description = file.read()
 
 setup(
-    name='selenium-requests',
-    version='1.3',
+    name='selenium-requests-html',
+    version='1.0',
     description=(
-        'Extends Selenium WebDriver classes to include the request function '
-        'from the Requests library, while doing all the needed cookie and '
-        'request headers handling.'
+        'Fork of selenium-requests that extends Selenium WebDriver classes to include the functionality '
+        'from the Requests-HTML library, while doing all the needed cookie and '
+        'request headers handling. Credit for most of what makes this work goes to'
+        'to Chris Braun and his original work done on Selenium-Requests'
+        'https://github.com/cryzed/Selenium-Requests'
     ),
     long_description=long_description,
-    author='Chris Braun',
-    author_email='cryzed@googlemail.com',
-    url='https://github.com/cryzed/Selenium-Requests',
-    packages=('seleniumrequests',),
+    author='Sylas Aldridge',
+    author_email='sylas@illsea.com',
+    url='https://github.com/illsea/Selenium-Requests-HTML',
+    packages=('seleniumrequestshtml',),
     install_requires=(
         'requests',
         'selenium',
@@ -38,7 +40,6 @@ setup(
         'Natural Language :: English',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 3'
     ]
 )

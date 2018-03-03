@@ -22,6 +22,7 @@ webdriver = Chrome(chrome_options=options)
 
 # webdriver.requests_session replaces regular HTMLSession() usage from requests-html
 session = webdriver.requests_session
+# then just do requests-HTML things
 response = session.get(url)
 images = response.html.find('img')
 

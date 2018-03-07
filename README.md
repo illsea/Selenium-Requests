@@ -30,5 +30,5 @@ print(images)
 
 # Installing
 
-pip install python-requests-html
+pip install selenium-requests-html
 

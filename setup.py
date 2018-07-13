@@ -30,7 +30,8 @@ setup(
         'requests',
         'selenium',
         'six',
-        'tldextract'
+        'tldextract',
+        'requests-html'
     ),
     license='MIT',
     python_requires='>=3.6',
